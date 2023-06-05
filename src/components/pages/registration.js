@@ -1,5 +1,6 @@
 
-import alogo from "/myamz/src/assets/logo.png"
+// import alogo from "/myamz/src/assets/logo.png"
+import alogo from "/ReactRedux_amazoneSite/src/assets/logo.png"
 import ArrowRightIcon  from '@mui/icons-material/ArrowRight';
 import { Link, useNavigate } from 'react-router-dom';
 import {auth }from "../firebaseconfig"
@@ -60,7 +61,7 @@ function Registration() {
                 setSucces("Account created successfully")
                 setTimeout(() =>{
                     navigate("/signin")
-                } ,3000)
+                } ,2000)
                 console.log(userDetails.user)
             }).catch((error) =>{
                 console.log(error.code)

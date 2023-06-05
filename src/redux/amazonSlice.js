@@ -4,7 +4,8 @@ const amazoneSlice = createSlice({
     name:"amazone" , 
     initialState :{
         products:[] ,
-        userInfo:null , 
+        userInfo:null ,
+        handleSearch: null 
     },
     reducers:{
         addToCart:(state , action) =>{
@@ -46,10 +47,15 @@ const amazoneSlice = createSlice({
         },
         userSignout:(state)=>{
             state.userInfo = null
+        } , 
+        setHandleSearch:(state , action)=>{
+            state.handleSearch = action.payload
+
         }
+       
         
 
     }
 }) 
-export const { addToCart , deleteItem , resetCart ,  incrementQuantity , decremenetQuantity , setUserInfo , userSignout} = amazoneSlice.actions;
+export const { addToCart , deleteItem , resetCart ,  incrementQuantity , decremenetQuantity , setUserInfo , userSignout , setHandleSearch} = amazoneSlice.actions;
 export default amazoneSlice.reducer

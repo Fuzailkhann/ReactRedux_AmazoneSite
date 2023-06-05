@@ -1,5 +1,6 @@
 import React from 'react'
-import alogo from "/myamz/src/assets/logo.png"
+// import alogo from "/myamz/src/assets/logo.png"
+import alogo from "/ReactRedux_amazoneSite/src/assets/logo.png"
 import ArrowRightIcon  from '@mui/icons-material/ArrowRight';
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';

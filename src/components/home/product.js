@@ -2,13 +2,19 @@ import React from 'react'
 import Axios from "axios"
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import Card from "./card"
 
+
 function Product() {
     
+    const searchCart = useSelector(state => state.cartreducer.handleSearch)
     
     const[details , setDetails] = useState([])
+    // const [data , setData] = useState("")
+
+    
     useEffect(() => {
         const fetchDetails = async () =>{
             const {data} = await Axios.get(`https://fakestoreapi.com/products`)
@@ -28,11 +34,32 @@ function Product() {
         //   }
         // );
       },[]);
+
+    //   useEffect(() =>{
+    //     setData(searchCart)
+    //   } ,[searchCart])
+
+      
+  
+
+    //   setTimeout((filterProducts) =>{
+    //     const fiterProducts = details.filter((val) =>{
+    //         return  val.title.toLowerCase().includes(data?.toLowerCase())
+    //       })
+        
+    // } ,2000)
+
+    const filterProducts = details.filter((val) =>{
+        return  val.title.toLowerCase().includes(searchCart?.toLowerCase())
+      })
+     
     
+        
+     
   return (
     <div className='mx-auto w-full grid grid-cols-1  md:grid-cols-4 gap-10 px-4'>
-        {
-            details.map((itm) =>{
+        { searchCart &&  filterProducts ? (
+            filterProducts.map((itm) =>{
                 return (
                     <div key={itm.id} className="w-full flex flex-col-1 md:flex-col-4 gap-5">
                         <Card 
@@ -47,14 +74,25 @@ function Product() {
                         >
 
                         </Card>
-
+                       
 
                     </div>
                    
                 )
             })
+        ):(
+            details.map((itm) =>{
+                return (
+                    <div key={itm.id} className="w-full flex flex-col-1 md:flex-col-4 gap-5" >
+                        <Card item={itm} />
+                        </div>
+                )
+            })
+        )
+            
 
-        }
+    }
+       
       
     </div>
   )
