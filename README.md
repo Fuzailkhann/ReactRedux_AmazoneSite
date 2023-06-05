@@ -7,7 +7,7 @@
 
 
 
- # [Live web link ](https://amazoneclonereactjs.netlify.app/cart.component)
+ # [Live web link ](amazoneclonereactjs.netlify.app)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
